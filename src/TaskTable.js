@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Task from '../Task';
-import taskData from './TaskData';
+import { useContext } from 'react';
+import { TaskContext } from './App.js';
 
 export default function TaskTable() {
+  const {taskData} = useContext(TaskContext);
   return (
     <div className="TaskTable">
       <table>
@@ -19,6 +21,8 @@ export default function TaskTable() {
           })}
         </tbody>
       </table>
+      <br />
+      <br />
     </div>
   );
 }
