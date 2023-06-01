@@ -17,8 +17,8 @@ export default function TaskTable() {
           </tr>
         </thead>
         <tbody>
-          {taskData.map((task) => {
-            return <Task key={task.id} {...task} />;
+          {taskData.map((task, index) => {
+            return <Task key={index} {...task} />;
           })}
         </tbody>
       </table>
