@@ -5,7 +5,7 @@ import Data from './TaskData.json';
 import './style.css';
 import { useState, createContext } from 'react';
 
-const TaskContext = createContext(null);
+export const TaskContext = createContext(null);
 
 export default function App() {
   const [taskData, setTaskData] = useState(Data);

@@ -4,7 +4,8 @@ import { useContext } from 'react';
 import { TaskContext } from './App.js';
 
 export default function TaskTable() {
-  const {taskData} = useContext(TaskContext);
+  const { taskData } = useContext(TaskContext);
+  console.log('table: ', taskData);
   return (
     <div className="TaskTable">
       <table>

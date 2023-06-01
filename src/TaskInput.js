@@ -1,12 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { TaskContext } from './App.js';
 
 export default function TaskInput() {
   const [taskDesc, setTaskDesc] = useState('');
   const [taskStat, setTaskStat] = useState('Not Started');
   const taskId = Math.floor(Math.random() * 1000000);
+  const { taskData, setTaskData } = useContext(TaskContext);
+  console.log('Input: ', taskData);
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        setTaskData([...taskData, { taskId, taskDesc, taskStat }]);
+      }}
+    >
       <label>
         Task ID:
         <input
