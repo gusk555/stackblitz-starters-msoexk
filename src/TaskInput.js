@@ -1,18 +1,20 @@
 import React from 'react';
-import { useState, useContext,useMemo } from 'react';
+import { useState, useContext, useMemo } from 'react';
 import { TaskContext } from './App.js';
 
 export default function TaskInput() {
   const [taskDesc, setTaskDesc] = useState('');
-  const [taskStat, setTaskStat] = useState('Not Started');  
+  const [taskStat, setTaskStat] = useState('Not Started');
   const { taskData, setTaskData } = useContext(TaskContext);
-  const taskId = useMemo(()=>Math.floor(Math.random() * 1000000),[taskData]);
-  console.log('Input: ', taskData);
+  const taskId = useMemo(() => Math.floor(Math.random() * 1000000), [taskData]);
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        setTaskData([...taskData, { taskId, taskDesc, taskStat }]);
+        setTaskData([
+          ...taskData,
+          { id: taskId, description: taskDesc, status: taskStat },
+        ]);
         setTaskDesc('');
         setTaskStat('Not Started');
       }}
