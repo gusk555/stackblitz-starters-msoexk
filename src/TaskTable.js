@@ -4,11 +4,14 @@ import { useContext } from 'react';
 import { TaskContext } from './App.js';
 
 export default function TaskTable() {
-  const { taskData, indexClicked, setEditTable } = useContext(TaskContext);
+  const { taskData, indexClicked,setIndexClicked,setEditTable } = useContext(TaskContext);
   return (
     <div className="TaskTable">
       <button name="SaveButtonTable">Save</button>
-      <button name="CancelButtonTable">Cancel</button>
+      <button name="CancelButtonTable" onClick={()=>{
+        setIndexClicked(-1)
+        setEditTable(false)
+      }}>Cancel</button>
       <button
         name="EditButtonTable"
         onClick={() => {
