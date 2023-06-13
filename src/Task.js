@@ -3,9 +3,24 @@ import { useContext, useEffect } from 'react';
 import { TaskContext } from './App.js';
 
 export default function Task(t) {
-  const { indexClicked, setIndexClicked } = useContext(TaskContext);
+  const { indexClicked, setIndexClicked, editTable } = useContext(TaskContext);
   useEffect(() => setIndexClicked(-1), []);
-  console.log(indexClicked);
+  if (editTable === true && indexClicked === t.id)
+    return (
+      <tr
+        className="task"
+        onClick={() => setIndexClicked(t.id)}
+        style={
+          indexClicked === t.id
+            ? { background: 'cyan' }
+            : { background: 'white' }
+        }
+      >
+        <td><input type='text' value={t.id}/></td>
+        <td><input type='text' value={t.description}/></td>
+        <td><input type='text' value={t.status}/></td>
+      </tr>
+    );
   return (
     <tr
       className="task"

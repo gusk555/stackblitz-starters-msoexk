@@ -4,9 +4,20 @@ import { useContext } from 'react';
 import { TaskContext } from './App.js';
 
 export default function TaskTable() {
-  const { taskData } = useContext(TaskContext);
+  const { taskData, indexClicked, setEditTable } = useContext(TaskContext);
   return (
     <div className="TaskTable">
+      <button name="SaveButtonTable">Save</button>
+      <button name="CancelButtonTable">Cancel</button>
+      <button
+        name="EditButtonTable"
+        onClick={() => {
+          indexClicked !== -1 ? setEditTable(true) : setEditTable(false);
+        }}
+      >
+        Edit
+      </button>
+      <button name="DeleteButtonTable">Delete</button>
       <table>
         <thead>
           <tr>
