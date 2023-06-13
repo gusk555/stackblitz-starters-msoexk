@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { TaskContext } from './App.js';
 
 export default function Task(t) {
   const { indexClicked, setIndexClicked } = useContext(TaskContext);
+  useEffect(() => setIndexClicked(-1), []);
   console.log(indexClicked);
   return (
     <tr
