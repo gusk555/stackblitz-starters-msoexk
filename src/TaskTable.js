@@ -1,17 +1,43 @@
 import * as React from 'react';
 import Task from './Task';
-import { useContext } from 'react';
+import { useContext,useEffect } from 'react';
 import { TaskContext } from './App.js';
 
 export default function TaskTable() {
-  const { taskData, indexClicked,setIndexClicked,setEditTable } = useContext(TaskContext);
+  useEffect(()=>{
+    setCancelClicked(false)
+    setSaveClicked(false)
+  })
+  const {
+    taskData,
+    indexClicked,
+    setIndexClicked,
+    setEditTable,
+    setCancelClicked,
+    setSaveClicked,
+  } = useContext(TaskContext);
   return (
     <div className="TaskTable">
-      <button name="SaveButtonTable">Save</button>
-      <button name="CancelButtonTable" onClick={()=>{
-        setIndexClicked(-1)
-        setEditTable(false)
-      }}>Cancel</button>
+      <button
+        name="SaveButtonTable"
+        onClick={() => {
+          setIndexClicked(-1);
+          setEditTable(false);
+          setSaveClicked(true);
+        }}
+      >
+        Save
+      </button>
+      <button
+        name="CancelButtonTable"
+        onClick={() => {
+          setIndexClicked(-1);
+          setEditTable(false);
+          setCancelClicked(true);
+        }}
+      >
+        Cancel
+      </button>
       <button
         name="EditButtonTable"
         onClick={() => {
