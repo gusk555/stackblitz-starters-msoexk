@@ -1,13 +1,14 @@
 import * as React from 'react';
 import Task from './Task';
-import { useContext,useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { TaskContext } from './App.js';
 
 export default function TaskTable() {
-  useEffect(()=>{
-    setCancelClicked(false)
-    setSaveClicked(false)
-  })
+  /*To reset the buttons everytime the table is loaded */
+  useEffect(() => {
+    setCancelClicked(false);
+    setSaveClicked(false);
+  });
   const {
     taskData,
     indexClicked,
