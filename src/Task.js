@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { TaskContext } from './App.js';
 
-export default function Task(t) {
+export default function Task(t,{handleSaveButton}) {
   const {
     taskData,
     setTaskData,
@@ -23,7 +23,8 @@ export default function Task(t) {
   /*if(saveClicked) setTaskData([
     ...taskData,
     { id: t.id, description: desc, status: stat },
-  ]);
+  ]);*/
+  handleSaveButton(t.id,desc,stat);
   /* When Edit button is clicked */
   if (editTable === true && indexClicked === t.id)
     return (
