@@ -11,12 +11,19 @@ export default function TaskTable() {
   });
   const {
     taskData,
+    setTaskData,
     indexClicked,
     setIndexClicked,
     setEditTable,
     setCancelClicked,
     setSaveClicked,
   } = useContext(TaskContext);
+  function HandleSaveButton(id,desc,stat){
+    setTaskData([
+      ...taskData,
+      { id: id, description: desc, status: stat },
+    ]);
+  }
   return (
     <div className="TaskTable">
       <button
@@ -25,6 +32,7 @@ export default function TaskTable() {
           setIndexClicked(-1);
           setEditTable(false);
           setSaveClicked(true);
+          HandleSaveButton()
         }}
       >
         Save
