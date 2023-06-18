@@ -24,7 +24,7 @@ export default function Task(t,{handleSaveButton}) {
     ...taskData,
     { id: t.id, description: desc, status: stat },
   ]);*/
-  handleSaveButton(t.id,desc,stat);
+  //handleSaveButton(t.id,desc,stat);
   /* When Edit button is clicked */
   if (editTable === true && indexClicked === t.id)
     return (
@@ -55,6 +55,7 @@ export default function Task(t,{handleSaveButton}) {
             <option value="Completed">Completed</option>
           </select>
         </td>
+        {handleSaveButton(t.id,desc,stat)}
       </tr>
     );
   return (
