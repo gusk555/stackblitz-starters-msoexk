@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { TaskContext } from './App.js';
 
-export default function Task(key,t,handleSaveButton) {
+export default function Task(t,handleSaveButton) {
   const {
     taskData,
     setTaskData,
@@ -25,7 +25,6 @@ export default function Task(key,t,handleSaveButton) {
     { id: t.id, description: desc, status: stat },
   ]);*/
   console.log(typeof(handleSaveButton))
-  console.log(typeof(key))
   console.log(typeof(t))
   handleSaveButton(t.id,desc,stat);
   /* When Edit button is clicked */
