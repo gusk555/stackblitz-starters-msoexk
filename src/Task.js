@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import { TaskContext } from './App.js';
 
-export default function Task(t,{handleSaveButton}) {
+export default function Task(key,t,handleSaveButton) {
   const {
     taskData,
     setTaskData,
@@ -24,7 +24,10 @@ export default function Task(t,{handleSaveButton}) {
     ...taskData,
     { id: t.id, description: desc, status: stat },
   ]);*/
-  //handleSaveButton(t.id,desc,stat);
+  console.log(typeof(handleSaveButton))
+  console.log(typeof(key))
+  console.log(typeof(t))
+  handleSaveButton(t.id,desc,stat);
   /* When Edit button is clicked */
   if (editTable === true && indexClicked === t.id)
     return (
@@ -55,7 +58,6 @@ export default function Task(t,{handleSaveButton}) {
             <option value="Completed">Completed</option>
           </select>
         </td>
-        {handleSaveButton(t.id,desc,stat)}
       </tr>
     );
   return (

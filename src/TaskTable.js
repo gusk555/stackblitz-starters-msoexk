@@ -67,7 +67,7 @@ export default function TaskTable() {
         </thead>
         <tbody>
           {taskData.map((task, index) => {
-            return <Task key={index} {...task} handleSaveButton={handleSaveButton}/>;
+            return <Task key={index} t={...task} handleSaveButton={handleSaveButton}/>;
           })}
         </tbody>
       </table>
