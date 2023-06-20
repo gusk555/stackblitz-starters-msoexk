@@ -7,7 +7,6 @@ export default function TaskTable() {
   /*To reset the buttons everytime the table is loaded */
   useEffect(() => {
     setCancelClicked(false);
-    setSaveClicked(false);
   });
   const {
     taskData,
@@ -16,14 +15,12 @@ export default function TaskTable() {
     setIndexClicked,
     setEditTable,
     setCancelClicked,
-    setSaveClicked,
   } = useContext(TaskContext);
   function handleSaveButton(id,desc,stat){
     setTaskData([
       ...taskData,
       { id: id, description: desc, status: stat },
     ]);
-    console.log("handlesave")
   }
   return (
     <div className="TaskTable">
@@ -32,8 +29,6 @@ export default function TaskTable() {
         onClick={() => {
           setIndexClicked(-1);
           setEditTable(false);
-          setSaveClicked(true);
-          handleSaveButton(id,desc,stat)
         }}
       >
         Save
@@ -67,7 +62,7 @@ export default function TaskTable() {
         </thead>
         <tbody>
           {taskData.map((task, index) => {
-            return <Task key={index} t={...task} handleSaveButton={handleSaveButton}/>;
+            return <Task key={index} {...task}/>;
           })}
         </tbody>
       </table>

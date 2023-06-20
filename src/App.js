@@ -12,7 +12,6 @@ export default function App() {
   const [indexClicked, setIndexClicked] = useState(-1);
   const [editTable, setEditTable] = useState(false);
   const [cancelClicked, setCancelClicked] = useState(false);
-  const [saveClicked, setSaveClicked] = useState(false);
   return (
     <div className="App">
       <TaskContext.Provider
@@ -25,8 +24,6 @@ export default function App() {
           setEditTable,
           cancelClicked,
           setCancelClicked,
-          saveClicked,
-          setSaveClicked,
         }}
       >
         <TaskInput />
