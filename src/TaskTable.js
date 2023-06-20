@@ -7,6 +7,7 @@ export default function TaskTable() {
   /*To reset the buttons everytime the table is loaded */
   useEffect(() => {
     setCancelClicked(false);
+    setSaveClicked(false)
   });
   const {
     taskData,
