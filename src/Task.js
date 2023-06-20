@@ -10,6 +10,7 @@ export default function Task(t) {
     setIndexClicked,
     editTable,
     cancelClicked,
+    saveClicked
   } = useContext(TaskContext);
   const [desc, setDesc] = useState(t.description);
   const [stat, setStat] = useState(t.status);
@@ -21,7 +22,8 @@ export default function Task(t) {
   /*When Save button is clicked */
 
   /* When Edit button is clicked */
-  if (editTable === true && indexClicked === t.id)
+  if (editTable === true && indexClicked === t.id){
+    if(saveClicked) setTaskData([...taskData,{id:t.id,description:desc,status:stat}])
     return (
       <tr
         className="task"
@@ -51,7 +53,7 @@ export default function Task(t) {
           </select>
         </td>
       </tr>
-    );
+    );}
   return (
     <tr
       className="task"

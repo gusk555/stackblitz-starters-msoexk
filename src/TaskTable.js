@@ -15,6 +15,7 @@ export default function TaskTable() {
     setIndexClicked,
     setEditTable,
     setCancelClicked,
+    setSaveClicked
   } = useContext(TaskContext);
   function handleSaveButton(id,desc,stat){
     setTaskData([
@@ -29,6 +30,7 @@ export default function TaskTable() {
         onClick={() => {
           setIndexClicked(-1);
           setEditTable(false);
+          setSaveClicked(true)
         }}
       >
         Save
