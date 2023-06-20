@@ -10,7 +10,6 @@ export default function Task(t) {
     setIndexClicked,
     editTable,
     cancelClicked,
-    saveClicked,
   } = useContext(TaskContext);
   const [desc, setDesc] = useState(t.description);
   const [stat, setStat] = useState(t.status);
