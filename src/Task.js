@@ -15,17 +15,23 @@ export default function Task(t) {
   } = useContext(TaskContext);
   const [desc, setDesc] = useState(t.description);
   const [stat, setStat] = useState(t.status);
+
   /* the below useEffect is to reset the properties when Cancel button is clicked */
   useEffect(() => {
     setDesc(t.description);
     setStat(t.status);
-  }, [cancelClicked]);
-  /*When Save button is clicked */
+  }, [cancelClicked]);  
 
   /* When Edit button is clicked */
   if (editTable === true && indexClicked === t.id) {
+    /*When Save button is clicked */
     if (saveClicked) {
-      setTaskData([...taskData, { id: t.id, description: desc, status: stat }]);
+      setTaskData(taskData.map((task)=>{
+      if(task.id===indexClicked) return {...task,description:desc,status:stat}
+      else return task
+      }
+      )
+      );
       setIndexClicked(-1);
       setEditTable(false);
       console.log(taskData);
