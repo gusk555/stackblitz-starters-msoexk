@@ -6,6 +6,7 @@ export default function TaskInput() {
   const [taskDesc, setTaskDesc] = useState('');
   const [taskStat, setTaskStat] = useState('Not Started');
   const { taskData, setTaskData } = useContext(TaskContext);
+  /* useMemo hook is to generate a new ID random number everytime a new Task is added to taskData*/
   const taskId = useMemo(() => Math.floor(Math.random() * 1000000), [taskData]);
   return (
     <form

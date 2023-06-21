@@ -8,6 +8,7 @@ export default function TaskTable() {
   useEffect(() => {
     setCancelClicked(false);
     setSaveClicked(false);
+    setDeleteClicked(false);
   });
   const {
     taskData,
@@ -15,6 +16,7 @@ export default function TaskTable() {
     setEditTable,
     setCancelClicked,
     setSaveClicked,
+    setDeleteClicked,
   } = useContext(TaskContext);
 
   return (
@@ -22,8 +24,6 @@ export default function TaskTable() {
       <button
         name="SaveButtonTable"
         onClick={() => {
-          //setIndexClicked(-1);
-          //setEditTable(false);
           setSaveClicked(true);
         }}
       >
@@ -32,8 +32,6 @@ export default function TaskTable() {
       <button
         name="CancelButtonTable"
         onClick={() => {
-          //setIndexClicked(-1);
-          //setEditTable(false);
           setCancelClicked(true);
         }}
       >
@@ -47,7 +45,16 @@ export default function TaskTable() {
       >
         Edit
       </button>
-      <button name="DeleteButtonTable">Delete</button>
+      <button
+        name="DeleteButtonTable"
+        onClick={() => {
+          indexClicked !== -1
+            ? setDeleteClicked(true)
+            : setDeleteClicked(false);
+        }}
+      >
+        Delete
+      </button>
       <table>
         <thead>
           <tr>
