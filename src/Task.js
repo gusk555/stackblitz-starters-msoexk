@@ -23,8 +23,8 @@ export default function Task(t) {
 
   /* When Edit button is clicked */
   if (editTable === true && indexClicked === t.id){
-    if(saveClicked) setTaskData([...taskData,{id:t.id,description:desc,status:stat}])
-    console.log(taskData)
+    if(saveClicked){ setTaskData([...taskData,{id:t.id,description:desc,status:stat}])
+    console.log(taskData)}
     return (
       <tr
         className="task"
